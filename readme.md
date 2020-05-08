@@ -28,7 +28,7 @@ And the best part is, it can be run on a single board computer like Jetson Nano,
 
 ## What am I doing with it?
 
-I had bought a Jetson Nano, before DeepStream SDK for Jetson Nano was released. When I saw [this pre-release video of DeepStream](https://www.youtube.com/watch?v=Y43W04sMK7I) by Nvidia Developers, I noticed that this technology can be half [code-bent](http://www.paperkettle.com/codebending/) to output the real time analysis data to any other software, and become an instrument, sonifier, visualizer, controller in any space
+I had bought a Jetson Nano, before DeepStream SDK for Jetson Nano was released. When I saw [this pre-release video of DeepStream](https://www.youtube.com/watch?v=Y43W04sMK7I) by Nvidia Developers, I thought that this technology can be half [code-bent](http://www.paperkettle.com/codebending/) to output the real time analysis data to any other software, and become an instrument, sonifier, visualizer, controller to play with in any space.
 
 I am working with a pre-trained model and config that comes with DeepStream examples. The model working in my modified app can only detect people, cars, bicycles and road signs. And I use a Logitech C920 webcam.
 
@@ -39,10 +39,15 @@ I am working with a pre-trained model and config that comes with DeepStream exam
 Jetson Nano constantly sends OSC messages to network with port 4545. The types of messages are:
 
 **/frame_number** - Current frame number
+
 **/oxywhc** - This message is sent for each object detected in the frame.
+
 [ object no, x coordinate, y coordinate, width, height, class name ]
+
 **/num_rects** - Total number of objects detected in the frame
+
 **/num_vehicles** - Number of vehicles detected in the frame
+
 **/num_people** - Number of people detected in the frame
 
 
@@ -50,8 +55,6 @@ Jetson Nano constantly sends OSC messages to network with port 4545. The types o
 ## Possible Use Cases:
 
 - Programming interactive / generative audiovisual setups. Using algorithms, rule sets, direct mapping, chance
-
-- Generative installations
 
 - Performances with choreography in a fixed space and camera position, or moving space (portable)
 
