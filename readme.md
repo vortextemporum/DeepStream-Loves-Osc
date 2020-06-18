@@ -10,7 +10,7 @@ Examples video: https://vimeo.com/416440440
 
 ### This repository includes:
 
-- a modified version of [python-deepstream-apps](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps) (only tested with DeepStream version 4.0.2, Jetpack 4.3), to open up an Open Sound Control bridge for DeepStream in Jetson Nano. OSC client broadcasts all the data of detected objects and other frame metadata to computers in the local network. Messages are sent from port 4545.
+- a modified version of [python-deepstream-apps](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps), to open up an Open Sound Control bridge for DeepStream in Jetson Nano. OSC client broadcasts all the data of detected objects and other frame metadata to computers in the local network. Messages are sent from port 4545.
 
 - a .scd file for parsing incoming OSC messages in SuperCollider, mapping them control busses, to be used for dynamic mapping of parameters in synths, patterns, routines etc.
 
