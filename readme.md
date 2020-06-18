@@ -64,30 +64,40 @@ Jetson Nano constantly sends OSC messages to network with port 4545. The types o
 
 
   
-## Setup
+## How to Use
 
-  Install Jetpack 4.3 and Deepstream 4.0.2 for Jetson Nano. Also install python bindings for DeepStream.
-  Clone this repo and put it in desktop.
-Make sure your webcam is connected, and Jetson Nano is connected to internet.
-  Run terminal and type:
-`  
-cd Desktop/deepstream-loves-osc/deepstream_python_apps/apps/deeposc; python3 deeposc.py /dev/video0
-  `
+    Install DeepStream SDK 5 and Python bindings, examples.
+Have python-osc library installed for your Python3. 
+
+`pip install python-osc`
+
+Copy this folder to your Deepstream 5.0 installation folder.
+
+`/opt/nvidia/deepstream/deepstream-5.0/sources/python/apps`
+
+
+------
+
+Usage:
+
+
+  $ cd /opt/nvidia/deepstream/deepstream-5.0/sources/python/apps/deepstream-osc
+
+
+Video files:
+
+  $ python3 dsoscvideo.py file:///home/user/path/to/video_file.mp4
+
+Webcam:
+
+  $ python3 dsoscwebcam.py <v4l2-device-path>
+Example:
+  $ python3 dsoscwebcam.py /dev/video0
   
-Get the OSC data from any other computer in the same network, from port 4545.
 
-## Plans/ideas for now:
 
-- Update the code for new DeepStream SDK version, currently this repo is for 4.0.2. Version 5 outputs float numbers for coordinate and size data, instead of integers in version 4. With float numbers, the data will have much more resolution and interpolation, making it closer to a clean signal.
+Get the OSC data from any other computer in the same network, from port 4545. 
 
-- RTSP and video file as input.
 
-- simple setups, code snippets, for sound generation. Make them easily switchable, for fast patching / live coding
 
-- Collecting video material from cities, streets, any place with people and cars and bicycles
 
-- Making the physical setup portable, with speakers, for carrying it like a backpack to any indoor/outdoor place to play it
-
-		- Jetson Nano wants 5V/4A power to run DeepStream. A "18650 battery board", or a powerbank  with DC output (expensive choice) would solve the power problem. But there are not enough resources/reviews about these solutions to confirm their reliability.
-
-		- Thermal issues: When running DeepStream, Jetson Nano heats like hell. The case for the setup should somehow keep the whole setup safe, and protect batteries from external heat (direct sunlight). 
