@@ -39,8 +39,6 @@ Obviously it is up to one's imagination to how to use this data; they can be map
 
 I use Supercollider to parse incoming OSC data from DeepStream, and map this data to parameters of synths I create. Each number data DeepStream sends (x-y-width-height each object, frame number, number of people-cars etc.) are stored in control busses in real time, which can be processed and mapped to anything I created in Supercollider on the fly. This allows me to turn the movements of people and vehicles grabbed by my camera to sounds.
 
-I am working with a pre-trained model and config that comes with DeepStream examples. The model working in my modified app can only detect people, cars, bicycles and road signs. And I use a Logitech C920 webcam.
-
 ![schemadeeposc](https://gateway.pinata.cloud/ipfs/QmPoqJLG7D5ktt4DA4N6WVQFn3ykgVbK9aq1shuufNsR2k/Deepstream%20Python.png)
 
 ## Messages:
