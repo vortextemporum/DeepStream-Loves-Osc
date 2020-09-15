@@ -115,6 +115,7 @@ def osd_sink_pad_buffer_probe(pad,info,u_data):
 
             try: 
                 l_obj=l_obj.next
+                lcounter = lcounter + 1
             except StopIteration:
                 break
         ### BERK

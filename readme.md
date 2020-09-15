@@ -5,7 +5,15 @@
 ![enter image description here](https://gateway.pinata.cloud/ipfs/QmRRDTWCsxqE4JfHZDzUqGRwXJKQAZ8Jox2dbkP8FR4H5U/deeposcexample2.png)
 
 
-Examples video: https://vimeo.com/416440440 
+First demo video: https://vimeo.com/416440440 
+
+Live coding w/ Supercollider + Youtube videos: https://www.youtube.com/watch?v=6JwX-vOz1Hg 
+
+Live visuals for Princess Camel album premiere livestream on Twitch at RGB Dog’s BedroomNightOut event: https://www.youtube.com/watch?v=hL9QXTFQdi4
+
+
+NVIDIA forum post: https://forumsx.developer.nvidia.com/t/turning-jetson-nano-to-an-interactive-audiovisual-instrument-deepstream-3-opensoundcontrol/128766
+
 
 
 ### This repository includes:
@@ -19,16 +27,17 @@ Examples video: https://vimeo.com/416440440
 ![.tox example](https://gateway.pinata.cloud/ipfs/QmemcXTEWScByMnoe7uyT29fo4S9WY6cxqmoe5XPvNiasA/deeposcexample1.png)
   
 
-## What is DeepStream SDK?
+### WHAT IS THIS?
 
-  
-NVIDIA DeepStream SDK is a very powerful resource for making real-time intelligent video analytics apps, DIY projects and IOT services.
+With this project, I am exploring the possibilities of using a real time object detection system as an interactive performative instrument. 
 
-And the best part is, it can be run on a single board computer like Jetson Nano, with a very good performance (30 fps), even with multiple video sources.
+I am using a single board computer called Jetson Nano, which runs DeepStream SDK; which is a realtime intelligent image analysis framework for survelliance, analysis, security applications or DIY projects. DeepStream can be used with realtime camera input, or video playback. The default model comes with DeepStream can detect people, cars, bicycles and roadsigns.
 
-## What am I doing with it?
+What I did with it was modifying some of the Python code examples to send data of each detected object to other computers in the network using OSC (Open Sound Control) protocol, which allows me to control any software that accepts OSC messages.
 
-I had bought a Jetson Nano, before DeepStream SDK for Jetson Nano was released. When I saw [this pre-release video of DeepStream](https://www.youtube.com/watch?v=Y43W04sMK7I) by Nvidia Developers, I thought that this technology can be half [code-bent](http://www.paperkettle.com/codebending/) to output the real time analysis data to any other software, and become an instrument, sonifier, visualizer, controller to play with in any space.
+Obviously it is up to one's imagination to how to use this data; they can be mapped as keyboard/mouse/gamepad inputs to control softwares such as videogames, be used to generate/control visuals and sounds, and so on.
+
+I use Supercollider to parse incoming OSC data from DeepStream, and map this data to parameters of synths I create. Each number data DeepStream sends (x-y-width-height each object, frame number, number of people-cars etc.) are stored in control busses in real time, which can be processed and mapped to anything I created in Supercollider on the fly. This allows me to turn the movements of people and vehicles grabbed by my camera to sounds.
 
 I am working with a pre-trained model and config that comes with DeepStream examples. The model working in my modified app can only detect people, cars, bicycles and road signs. And I use a Logitech C920 webcam.
 
@@ -91,12 +100,15 @@ Video files:
 Webcam:
 
   $ python3 dsoscwebcam.py <v4l2-device-path>
+
 Example:
   $ python3 dsoscwebcam.py /dev/video0
   
 
 
-Get the OSC data from any other computer in the same network, from port 4545. 
+Get the OSC data from any other computer in the same network, from port 4545 (change the IP address of your network connection, on default it is 192.168.1.255). Use it however you want.
+
+Check Touchdesigner and Supercollider examples to play with it!
 
 
 
